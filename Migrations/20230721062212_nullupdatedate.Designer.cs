@@ -4,6 +4,7 @@ using MagicVilla.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MagicVilla.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230721062212_nullupdatedate")]
+    partial class nullupdatedate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -55,7 +57,7 @@ namespace MagicVilla.Migrations
                     b.Property<int>("SqFt")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("createdDate")
+                    b.Property<DateTime?>("createdDate")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("updatedDate")
@@ -76,7 +78,7 @@ namespace MagicVilla.Migrations
                             Occupancy = 5,
                             Rate = 500,
                             SqFt = 5000,
-                            createdDate = new DateTime(2023, 7, 21, 12, 16, 38, 917, DateTimeKind.Local).AddTicks(8742)
+                            createdDate = new DateTime(2023, 7, 21, 12, 7, 12, 530, DateTimeKind.Local).AddTicks(6606)
                         },
                         new
                         {
@@ -88,7 +90,7 @@ namespace MagicVilla.Migrations
                             Occupancy = 6,
                             Rate = 300,
                             SqFt = 4000,
-                            createdDate = new DateTime(2023, 7, 21, 12, 16, 38, 917, DateTimeKind.Local).AddTicks(8744)
+                            createdDate = new DateTime(2023, 7, 21, 12, 7, 12, 530, DateTimeKind.Local).AddTicks(6616)
                         });
                 });
 #pragma warning restore 612, 618

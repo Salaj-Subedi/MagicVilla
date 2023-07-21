@@ -23,9 +23,9 @@ namespace MagicVilla.Models
 
         public string Amenity { get; set; }
 
-        public DateTime createdDate { get; set; }
+        public DateTime createdDate { get; set; } = DateTime.Now;
 
-        public DateTime updatedDate { get; set; }
+        public DateTime? updatedDate { get; set; }
 
 
     }
