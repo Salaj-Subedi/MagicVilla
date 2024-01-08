@@ -20,18 +20,19 @@ namespace MagicVilla.Controllers
     [ApiController]
     public class VillaAPIController : ControllerBase
     {
+        //private readonly ILogging _logger;
 
+        //public VillaAPIController(ILogging logger) 
+        //{
+        //    _logger = logger;
+        //}
 
 
         private readonly ApplicationDbContext _db;
-
         public VillaAPIController(ApplicationDbContext db)
         {
             _db = db;
         }
-
-
-
 
 
         [HttpGet]
@@ -54,9 +55,10 @@ namespace MagicVilla.Controllers
                 Rate = v.Rate,
                 Occupancy = v.Occupancy,
             }).ToList();
-
+            //_logger.Log("GEtting Villas" , "");
             return Ok(villaDTOs);
         }
+
 
         [HttpGet("{id:int}", Name = "GetVilla")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -67,6 +69,7 @@ namespace MagicVilla.Controllers
         {
             if (id == 0)
             {
+                //_logger.Log("Cannot Get Villas"+id,"error");
                 return BadRequest();
             }
 
@@ -98,7 +101,6 @@ namespace MagicVilla.Controllers
 
             return Ok(villaDTO);
         }
-
 
 
         [HttpPost]
@@ -157,8 +159,6 @@ namespace MagicVilla.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
-
-
 
 
         [HttpDelete("{id:int}", Name = "DeleteVilla")]
@@ -235,10 +235,11 @@ namespace MagicVilla.Controllers
             return NoContent();
         }
 
+
         [HttpPatch("{id:int}", Name = "UpdatePartialVilla")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        //put update villa by id
+        //patch update villa by id
         public IActionResult UpdatePartialVilla(int id, JsonPatchDocument<VillaDTO> patchDTO)
         {
             if (patchDTO == null || id == 0)
@@ -247,7 +248,7 @@ namespace MagicVilla.Controllers
             }
 
             // Retrieve the existing Villa entity from the database
-            var villa = _db.Magical_Villas.FirstOrDefault(u => u.Id == id);
+            var villa = _db.Magical_Villas.AsNoTracking().FirstOrDefault(u => u.Id == id); // to not track when retrieving records
             if (villa == null)
             {
                 return NotFound();

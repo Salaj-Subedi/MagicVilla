@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MagicVilla.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230716165903_addData")]
-    partial class addData
+    [Migration("20240107165703_AddVillaTable")]
+    partial class AddVillaTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -60,7 +60,7 @@ namespace MagicVilla.Migrations
                     b.Property<DateTime>("createdDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("updatedDate")
+                    b.Property<DateTime?>("updatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -78,8 +78,7 @@ namespace MagicVilla.Migrations
                             Occupancy = 5,
                             Rate = 500,
                             SqFt = 5000,
-                            createdDate = new DateTime(2023, 7, 16, 22, 44, 2, 909, DateTimeKind.Local).AddTicks(2923),
-                            updatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            createdDate = new DateTime(2024, 1, 7, 22, 42, 3, 702, DateTimeKind.Local).AddTicks(4756)
                         },
                         new
                         {
@@ -91,8 +90,7 @@ namespace MagicVilla.Migrations
                             Occupancy = 6,
                             Rate = 300,
                             SqFt = 4000,
-                            createdDate = new DateTime(2023, 7, 16, 22, 44, 2, 909, DateTimeKind.Local).AddTicks(2931),
-                            updatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            createdDate = new DateTime(2024, 1, 7, 22, 42, 3, 702, DateTimeKind.Local).AddTicks(4758)
                         });
                 });
 #pragma warning restore 612, 618

@@ -76,7 +76,7 @@ namespace MagicVilla.Migrations
                             Occupancy = 5,
                             Rate = 500,
                             SqFt = 5000,
-                            createdDate = new DateTime(2023, 7, 21, 12, 16, 38, 917, DateTimeKind.Local).AddTicks(8742)
+                            createdDate = new DateTime(2024, 1, 7, 22, 42, 3, 702, DateTimeKind.Local).AddTicks(4756)
                         },
                         new
                         {
@@ -88,7 +88,7 @@ namespace MagicVilla.Migrations
                             Occupancy = 6,
                             Rate = 300,
                             SqFt = 4000,
-                            createdDate = new DateTime(2023, 7, 21, 12, 16, 38, 917, DateTimeKind.Local).AddTicks(8744)
+                            createdDate = new DateTime(2024, 1, 7, 22, 42, 3, 702, DateTimeKind.Local).AddTicks(4758)
                         });
                 });
 #pragma warning restore 612, 618

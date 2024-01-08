@@ -5,7 +5,7 @@
 
         public void Log(string message, string type)
         {
-           if(type == "error")
+           if(type.ToLower() == "error")
             {
                 Console.WriteLine("Error = "+ message);
             }

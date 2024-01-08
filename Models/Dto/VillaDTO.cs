@@ -1,10 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MagicVilla.Models.Dto
 {
     public class VillaDTO
     {
         [Key]
+
         public int Id { get; set; }
 
         [Required]
